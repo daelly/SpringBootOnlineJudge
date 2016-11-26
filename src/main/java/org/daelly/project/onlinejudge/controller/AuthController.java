@@ -15,6 +15,7 @@ import org.daelly.project.onlinejudge.utils.PassWordUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -26,7 +27,7 @@ public class AuthController {
 	@Autowired
 	AuthPermissionDao permissionDao;
 	
-	@RequestMapping("/login")
+	@RequestMapping(value="/login",method=RequestMethod.GET)
 	public String login(){
 		return "auth/login";
 	}
@@ -38,7 +39,12 @@ public class AuthController {
 		return users.size();
 	}
 	
-	@RequestMapping("/register")
+	@RequestMapping(value="/register",method=RequestMethod.GET)
+	public String register(){
+		return "auth/register";
+	}
+	
+	@RequestMapping(value="/register",method=RequestMethod.POST)
 	public String register(String usernamesignup,String emailsignup,String passwordsignup) throws Exception{
 		AuthUser user = new AuthUser();
 		user.setUsername(usernamesignup);

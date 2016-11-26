@@ -61,15 +61,4 @@ public class PassWordUtils {
 		return bytes;
 	}
 	
-	public static void main(String[] args) throws NoSuchAlgorithmException, InvalidKeySpecException{
-		String originalPassword = "dae102632";
-		String generateSecuredPassword = generatePasswordHash(originalPassword);
-		System.out.println(generateSecuredPassword);
-		
-		boolean matched = validatePassword(originalPassword, generateSecuredPassword);
-		System.out.println(matched);
-		
-		matched = validatePassword("123", generateSecuredPassword);
-		System.out.println(matched);
-	}
 }
