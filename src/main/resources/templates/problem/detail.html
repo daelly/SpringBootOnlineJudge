@@ -12,21 +12,33 @@
 	  <!-- Bootstrap 3.3.6 -->
 	  <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css" />
 	  <!-- Font Awesome -->
-	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" />
+	  <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" />
 	  <!-- Ionicons -->
-	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css" />
+	  <link rel="stylesheet" href="//cdn.bootcss.com/ionicons/2.0.1/css/ionicons.min.css" />
 	  <!-- Theme style -->
 	  <link rel="stylesheet" href="/custom/dist/css/AdminLTE.min.css" />
 	  <!-- AdminLTE Skins. Choose a skin from the css/skins
 	       folder instead of downloading all of them to reduce the load. -->
 	  <link rel="stylesheet" href="/custom/dist/css/skins/skin-blue.min.css" />
+	  <!-- codeMirror -->
+	  <link href="//cdn.bootcss.com/codemirror/5.21.0/codemirror.min.css" rel="stylesheet">
+	  <link href="//cdn.bootcss.com/codemirror/5.21.0/theme/neat.css" rel="stylesheet">
+	  <link href="/lib/colorbox/colorbox.css" rel="stylesheet">
 	  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	  <!--[if lt IE 9]>
 	  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	  <![endif]-->
-	  <style type="text/css"></style>
+	  <style type="text/css">
+	  	.box-body dl dt{line-height: 40px;font-size: 18px;font-weight: 600;}
+	  	.box-body dl dd{padding-left: 5px;font-size: 15px;}
+	  	.box-header{font-weight: bolder;font-size: 20px;line-height: 40px;}
+	  	.box-header h3{font-weight: bolder;}
+	  	.CodeMirror{border: 0px inset #dee;}
+	  	#colorbox{box-shadow: #bbb 0 0 5px;}
+		#cboxLoadedContent{margin-bottom: 0px!important;}
+	  </style>
 	</head> 
 	<body class="hold-transition skin-blue layout-top-nav">
 		<div class="wrapper">
@@ -56,12 +68,12 @@
 		              <dl>
 		                <dt>General Information</dt>
 		                <dd>
-		                	<b>Total Submissions:</b><span th:text="${problem.submissions}"></span>
+		                	<b>Total Submissions:</b><span th:text="${problem.submissions}"></span>&nbsp;&nbsp;&nbsp;
 		                	<b>Accepted:</b><span th:text="${problem.accepted}"></span>
 		                </dd>
 		                <dt>Limit Information</dt>
 		                 <dd>
-		                	<b>Time Limit:</b><span th:text="${problem.timeLimit}"></span>MS
+		                	<b>Time Limit:</b><span th:text="${problem.timeLimit}"></span>MS&nbsp;&nbsp;&nbsp;
 		                	<b>Memory Limit:</b><span th:text="${problem.memoryLimit}"></span>KB
 		                </dd>
 		                <dt>Description</dt>
@@ -71,10 +83,17 @@
 		                <dt>Output</dt>
 		                <dd th:text="${problem.outputDesc}">Etiam porta sem malesuada magna mollis euismod.</dd>
 		                <dt>Sample Input</dt>
-		                <dd th:text="${problem.outputDesc}">Etiam porta sem malesuada magna mollis euismod.</dd>
+		                <dd>
+		                	<pre th:text="${problem.outputDesc}"></pre>
+		                </dd>
 		                <dt>Sample Output</dt>
-		                <dd th:text="${problem.outputDesc}">Etiam porta sem malesuada magna mollis euismod.</dd>
+		                <dd>
+		                	<pre th:text="${problem.outputDesc}"></pre>
+		                </dd>
 		              </dl>
+			          <div class="text-center">
+			          	<a class="btn btn-block btn-primary btn-sm center-block" href="#CodePanel" style="width: 90px;" id="ShowCode">提交</a>
+			          </div>
 		            </div>
 		            <!-- /.box-body -->
 		          </div>
@@ -84,26 +103,37 @@
 			<footer th:replace="~{home::footer}">
 			</footer>
 		</div>
+		<div style="display: none;">
+			<div id="CodePanel">
+				<textarea id="CodeArea" style="display: none"></textarea>
+				<hr/>
+				<div class="modal-footer">
+					<select class="form-control input-sm pull-left" id="language" style="width: 90px;">
+						<option value="0">C</option>
+						<option value="1">C++</option>
+						<option value="2">Java</option>
+					</select>
+					<button id="clearSrc" class="btn btn-sm btn-danger">Clear</button>
+					<button class="btn btn-sm btn-success">Submit</button>
+				</div>
+			</div>
+		</div>
 		<!-- jQuery 2.2.3 -->
 		<script src="/lib/jQuery/jquery-2.2.3.min.js"></script>
 		<!-- Bootstrap 3.3.6 -->
 		<script src="/lib/bootstrap/js/bootstrap.min.js"></script>
-		<!-- DataTables -->
-		<script src="/lib/datatables/jquery.dataTables.min.js"></script>
-		<script src="/lib/datatables/dataTables.bootstrap.min.js"></script>
 		<!-- SlimScroll -->
 		<script src="/lib/slimScroll/jquery.slimscroll.min.js"></script>
 		<!-- FastClick -->
 		<script src="/lib/fastclick/fastclick.js"></script>
 		<!-- AdminLTE App -->
 		<script src="/custom/dist/js/app.min.js"></script>
-		<!-- AdminLTE for demo purposes -->
-		<script src="/custom/dist/js/demo.js"></script>
+		<!-- codemirror -->
+		<script src="//cdn.bootcss.com/codemirror/5.21.0/codemirror.min.js"></script>
+		<!-- colorbox -->
+		<script src="//cdn.bootcss.com/jquery.colorbox/1.6.4/jquery.colorbox-min.js"></script>
+		<script src="//cdn.bootcss.com/codemirror/5.21.0/mode/clike/clike.min.js"></script>
 		<!-- page script -->
-		<script>
-		  $(function () {
-		    $("#example1").DataTable();
-		  });
-		</script>
+		<script type="text/javascript" src="/custom/js/detail.js"></script>
 	</body>
 </html>
