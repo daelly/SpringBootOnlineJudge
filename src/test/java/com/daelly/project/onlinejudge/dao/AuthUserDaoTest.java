@@ -1,4 +1,4 @@
-package com.daelly.project.onlinejudge.dao.test;
+package com.daelly.project.onlinejudge.dao;
 
 import java.sql.Timestamp;
 import java.util.Date;
