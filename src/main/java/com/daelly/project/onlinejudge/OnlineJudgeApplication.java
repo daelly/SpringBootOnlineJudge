@@ -16,30 +16,24 @@
 
 package com.daelly.project.onlinejudge;
 
+import java.util.Arrays;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 
 @SpringBootApplication
 public class OnlineJudgeApplication{
 
 	public static void main(String[] args) throws Exception {
-		/*ApplicationContext ctx = */SpringApplication.run(OnlineJudgeApplication.class, args);
-//		System.out.println("Let's inspect the beans provided by Spring Boot:");
-//
-//        String[] beanNames = ctx.getBeanDefinitionNames();
-//        Map<String,SpringTemplateEngine> beans = ctx.getBeansOfType(SpringTemplateEngine.class);
-//        System.out.println(beans.isEmpty());
-//        Set<Entry<String, SpringTemplateEngine>> entrySet = beans.entrySet();
-//        for (Entry<String, SpringTemplateEngine> entry : entrySet) {
-//        	SpringTemplateEngine engine = entry.getValue();
-//			System.out.println(entry.getKey()+"------------"+engine.getClass());
-//			Set<IDialect> dialects = engine.getDialects();
-//			System.out.println(dialects);
-//		}
-//        Arrays.sort(beanNames);
-//        for (String beanName : beanNames) {
-//            System.out.println(beanName);
-//        }
+		ApplicationContext ctx = SpringApplication.run(OnlineJudgeApplication.class, args);
+		System.out.println("Let's inspect the beans provided by Spring Boot:");
+
+        String[] beanNames = ctx.getBeanDefinitionNames();
+        Arrays.sort(beanNames);
+        for (String beanName : beanNames) {
+            System.out.println(beanName);
+        }
 	}
 
 }

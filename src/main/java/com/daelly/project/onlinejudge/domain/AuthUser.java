@@ -1,22 +1,28 @@
 package com.daelly.project.onlinejudge.domain;
 
+import static javax.persistence.GenerationType.IDENTITY;
+
 import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import static javax.persistence.GenerationType.IDENTITY;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
+
 /**
  * AuthUser entity. @author MyEclipse Persistence Tools
  */
+//@Cache(region="account",usage=CacheConcurrencyStrategy.READ_WRITE)
 @Entity
 @Table(name = "auth_user", uniqueConstraints = @UniqueConstraint(columnNames = "username"))
 public class AuthUser implements java.io.Serializable {

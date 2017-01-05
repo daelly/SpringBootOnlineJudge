@@ -14,6 +14,7 @@ import com.daelly.project.onlinejudge.dao.AuthUserDao;
 import com.daelly.project.onlinejudge.domain.AuthPermission;
 import com.daelly.project.onlinejudge.domain.AuthUser;
 import com.daelly.project.onlinejudge.domain.AuthUserUserPermissions;
+import com.daelly.project.onlinejudge.expection.AuthException;
 
 @Service
 @Transactional
@@ -28,16 +29,16 @@ public class AuthUserService {
 	public void register(AuthUser user) {
 		List<AuthUser> existedUsers = userDao.findByUsername(user.getUsername());
 		if(existedUsers != null && existedUsers.size() > 0) {
-			throw new RuntimeException("用户名已被注册！！");
+			throw new AuthException("用户名已被注册！！");
 		}
 		AuthPermission permission = permissionDao.findOne(Constants.GENERAL_PER_ID);
 		if(permission==null) {
-			throw new RuntimeException("无效的权限！！");
+			throw new AuthException("无效的权限！！");
 		}
 		AuthUserUserPermissions userPermission = new AuthUserUserPermissions(user, permission);
 		Set<AuthUserUserPermissions> authUserUserPermissionses = new HashSet<AuthUserUserPermissions>();
 		authUserUserPermissionses.add(userPermission);
-		user.setAuthUserUserPermissionses(authUserUserPermissionses );
+		user.setAuthUserUserPermissionses(authUserUserPermissionses);
 		userDao.save(user);
 	}
 }
