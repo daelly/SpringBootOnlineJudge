@@ -27,8 +27,8 @@ import org.hibernate.annotations.CacheConcurrencyStrategy;
 @Table(name = "auth_user", uniqueConstraints = @UniqueConstraint(columnNames = "username"))
 public class AuthUser implements java.io.Serializable {
 
+	private static final long serialVersionUID = 7049425434921373285L;
 	// Fields
-
 	private Integer id;
 	private String password;
 	private Timestamp lastLogin;

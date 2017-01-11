@@ -19,8 +19,8 @@
      <defaultCache
             maxElementsInMemory="1000"
             eternal="false"
-            timeToIdleSeconds="120"
-            timeToLiveSeconds="120"
+            timeToIdleSeconds="3600"
+            timeToLiveSeconds="0"
             maxElementsOnDisk="1000000"
             overflowToDisk="true" 
             memoryStoreEvictionPolicy="LRU">
@@ -40,6 +40,30 @@
 		maxElementsInMemory="1000"
 		eternal="false" 
 		timeToIdleSeconds="3600"
+		timeToLiveSeconds="0" 
+		overflowToDisk="false" 
+		diskPersistent="true" />
+	<cache 
+		name="ONE_HOUR"
+		maxElementsInMemory="1000"
+		eternal="false" 
+		timeToIdleSeconds="3600"
+		timeToLiveSeconds="0" 
+		overflowToDisk="false" 
+		diskPersistent="true" />
+	<cache 
+		name="ONE_DAY"
+		maxElementsInMemory="1000"
+		eternal="false" 
+		timeToIdleSeconds="86400"
+		timeToLiveSeconds="0" 
+		overflowToDisk="false" 
+		diskPersistent="true" />
+	<cache 
+		name="ONE_MONTH"
+		maxElementsInMemory="1000"
+		eternal="false" 
+		timeToIdleSeconds="2592000"
 		timeToLiveSeconds="0" 
 		overflowToDisk="false" 
 		diskPersistent="true" />

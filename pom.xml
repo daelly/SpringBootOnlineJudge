@@ -40,17 +40,8 @@
 		</dependency>
 		<!-- end::security[] -->
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-context-support</artifactId>
-		</dependency>
-		<dependency>
 			<groupId>net.sf.ehcache</groupId>
 			<artifactId>ehcache</artifactId>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-ehcache -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-ehcache</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>
