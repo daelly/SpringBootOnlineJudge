@@ -17,8 +17,12 @@ import javax.persistence.Table;
 @Table(name = "tbl_testcase")
 public class TblTestcase implements java.io.Serializable {
 
-	// Fields
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4444420867575340724L;
 
+	// Fields
 	private Integer id;
 	private TblSubject tblSubject;
 	private String inputData;

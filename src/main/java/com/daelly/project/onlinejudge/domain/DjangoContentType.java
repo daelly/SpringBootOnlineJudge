@@ -21,8 +21,12 @@ import javax.persistence.UniqueConstraint;
 		"app_label", "model" }))
 public class DjangoContentType implements java.io.Serializable {
 
-	// Fields
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 6422501235917277760L;
 
+	// Fields
 	private Integer id;
 	private String appLabel;
 	private String model;

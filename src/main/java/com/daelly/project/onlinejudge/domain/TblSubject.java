@@ -22,8 +22,12 @@ import javax.persistence.Table;
 @Table(name = "tbl_subject")
 public class TblSubject implements java.io.Serializable {
 
-	// Fields
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1046961815235994219L;
 
+	// Fields
 	private Integer id;
 	private AuthUser authUser;
 	private Integer subjectNo;

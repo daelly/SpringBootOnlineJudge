@@ -16,13 +16,9 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
-import org.hibernate.annotations.Cache;
-import org.hibernate.annotations.CacheConcurrencyStrategy;
-
 /**
  * AuthUser entity. @author MyEclipse Persistence Tools
  */
-//@Cache(region="account",usage=CacheConcurrencyStrategy.READ_WRITE)
 @Entity
 @Table(name = "auth_user", uniqueConstraints = @UniqueConstraint(columnNames = "username"))
 public class AuthUser implements java.io.Serializable {

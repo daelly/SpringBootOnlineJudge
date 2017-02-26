@@ -19,8 +19,12 @@ import javax.persistence.UniqueConstraint;
 		"user_id", "group_id" }))
 public class AuthUserGroups implements java.io.Serializable {
 
-	// Fields
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1851476086766930008L;
 
+	// Fields
 	private Integer id;
 	private AuthUser authUser;
 	private AuthGroup authGroup;

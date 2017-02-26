@@ -68,27 +68,27 @@
 		              <dl>
 		                <dt>General Information</dt>
 		                <dd>
-		                	<b>Total Submissions:</b><span th:text="${problem.submissions}"></span>&nbsp;&nbsp;&nbsp;
-		                	<b>Accepted:</b><span th:text="${problem.accepted}"></span>
+		                	<b>Total Submissions:</b><span th:text="${problem.submissions}">107</span>&nbsp;&nbsp;&nbsp;
+		                	<b>Accepted:</b><span th:text="${problem.accepted}">67</span>
 		                </dd>
 		                <dt>Limit Information</dt>
 		                 <dd>
-		                	<b>Time Limit:</b><span th:text="${problem.timeLimit}"></span>MS&nbsp;&nbsp;&nbsp;
-		                	<b>Memory Limit:</b><span th:text="${problem.memoryLimit}"></span>KB
+		                	<b>Time Limit:</b><span th:text="${problem.timeLimit}">1000</span>ms&nbsp;&nbsp;&nbsp;
+		                	<b>Memory Limit:</b><span th:text="${problem.memoryLimit}">65536</span>kb
 		                </dd>
 		                <dt>Description</dt>
-		                <dd th:text="${problem.subjectDesc}">Etiam porta sem malesuada magna mollis euismod.</dd>
+		                <dd th:utext="${problem.subjectDesc}">Etiam porta sem malesuada magna mollis euismod.</dd>
 		                <dt>Input</dt>
-		                <dd th:text="${problem.inputDesc}">Etiam porta sem malesuada magna mollis euismod.</dd>
+		                <dd th:utext="${problem.inputDesc}">Etiam porta sem malesuada magna mollis euismod.</dd>
 		                <dt>Output</dt>
-		                <dd th:text="${problem.outputDesc}">Etiam porta sem malesuada magna mollis euismod.</dd>
+		                <dd th:utext="${problem.outputDesc}">Etiam porta sem malesuada magna mollis euismod.</dd>
 		                <dt>Sample Input</dt>
 		                <dd>
-		                	<pre th:text="${problem.outputDesc}"></pre>
+		                	<pre th:text="${problem.tblTestcases[0].inputData}"></pre>
 		                </dd>
 		                <dt>Sample Output</dt>
 		                <dd>
-		                	<pre th:text="${problem.outputDesc}"></pre>
+		                	<pre th:text="${problem.tblTestcases[0].outputData}"></pre>
 		                </dd>
 		              </dl>
 			          <div class="text-center">

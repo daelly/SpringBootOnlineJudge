@@ -7,25 +7,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.daelly.project.onlinejudge.dao.TblSubjectDao;
 import com.daelly.project.onlinejudge.domain.TblSubject;
+import com.daelly.project.onlinejudge.service.TblSubjectService;
 import com.daelly.project.onlinejudge.utils.RefResultVo;
 
 @Controller
 public class ProblemController {
 	
 	@Autowired
-	TblSubjectDao subjectDao;
+	TblSubjectService service;
 
 	@RequestMapping("/problems")
 	public ModelAndView list() {
-		Iterable<TblSubject> problems = subjectDao.findAll();
+		Iterable<TblSubject> problems = service.findAll();
 		return new ModelAndView("problem/list", "problems", problems);
 	}
 	
 	@RequestMapping("/problem/{id}")
 	public ModelAndView detail(@PathVariable Integer id) {
-		TblSubject problem = subjectDao.findOne(id);
+		TblSubject problem = service.findOne(id);
 		return new ModelAndView("problem/detail", "problem", problem);
 	}
 	

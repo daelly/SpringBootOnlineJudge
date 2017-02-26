@@ -19,8 +19,12 @@ import javax.persistence.UniqueConstraint;
 @Table(name = "auth_group", uniqueConstraints = @UniqueConstraint(columnNames = "name"))
 public class AuthGroup implements java.io.Serializable {
 
-	// Fields
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2073146199423987648L;
 
+	// Fields
 	private Integer id;
 	private String name;
 	private Set<AuthGroupPermissions> authGroupPermissionses = new HashSet<AuthGroupPermissions>(

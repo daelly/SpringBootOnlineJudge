@@ -42,7 +42,7 @@
 		timeToIdleSeconds="3600"
 		timeToLiveSeconds="0" 
 		overflowToDisk="false" 
-		diskPersistent="true" />
+		diskPersistent="false" />
 	<cache 
 		name="ONE_HOUR"
 		maxElementsInMemory="1000"
@@ -50,7 +50,7 @@
 		timeToIdleSeconds="3600"
 		timeToLiveSeconds="0" 
 		overflowToDisk="false" 
-		diskPersistent="true" />
+		diskPersistent="false" />
 	<cache 
 		name="ONE_DAY"
 		maxElementsInMemory="1000"
@@ -58,7 +58,7 @@
 		timeToIdleSeconds="86400"
 		timeToLiveSeconds="0" 
 		overflowToDisk="false" 
-		diskPersistent="true" />
+		diskPersistent="false" />
 	<cache 
 		name="ONE_MONTH"
 		maxElementsInMemory="1000"
@@ -66,5 +66,5 @@
 		timeToIdleSeconds="2592000"
 		timeToLiveSeconds="0" 
 		overflowToDisk="false" 
-		diskPersistent="true" />
+		diskPersistent="false" />
 </ehcache>

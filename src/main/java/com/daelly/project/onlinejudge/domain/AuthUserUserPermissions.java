@@ -19,8 +19,12 @@ import javax.persistence.UniqueConstraint;
 		"user_id", "permission_id" }))
 public class AuthUserUserPermissions implements java.io.Serializable {
 
-	// Fields
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1361848745440628591L;
 
+	// Fields
 	private Integer id;
 	private AuthUser authUser;
 	private AuthPermission authPermission;

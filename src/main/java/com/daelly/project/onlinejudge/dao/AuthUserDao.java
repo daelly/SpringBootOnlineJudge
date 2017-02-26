@@ -11,6 +11,6 @@ import com.daelly.project.onlinejudge.domain.AuthUser;
 @Repository
 public interface AuthUserDao extends PagingAndSortingRepository<AuthUser, Integer> {
 
-	@Cacheable("common")
+	@Cacheable("com.daelly.project.onlinejudge.dao.findByUsername")
 	public List<AuthUser> findByUsername(String username);
 }

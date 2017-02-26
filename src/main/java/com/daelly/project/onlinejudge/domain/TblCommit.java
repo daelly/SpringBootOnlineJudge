@@ -18,8 +18,12 @@ import javax.persistence.Table;
 @Table(name = "tbl_commit")
 public class TblCommit implements java.io.Serializable {
 
-	// Fields
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4536012994221653802L;
 
+	// Fields
 	private Integer id;
 	private AuthUser authUser;
 	private TblSubject tblSubject;

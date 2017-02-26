@@ -23,8 +23,12 @@ import javax.persistence.UniqueConstraint;
 		"content_type_id", "codename" }))
 public class AuthPermission implements java.io.Serializable {
 
-	// Fields
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 8915033748214857553L;
 
+	// Fields
 	private Integer id;
 	private DjangoContentType djangoContentType;
 	private String name;

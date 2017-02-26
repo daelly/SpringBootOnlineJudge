@@ -18,8 +18,12 @@ import javax.persistence.Table;
 @Table(name = "django_admin_log")
 public class DjangoAdminLog implements java.io.Serializable {
 
-	// Fields
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8465882279366656587L;
 
+	// Fields
 	private Integer id;
 	private AuthUser authUser;
 	private DjangoContentType djangoContentType;
